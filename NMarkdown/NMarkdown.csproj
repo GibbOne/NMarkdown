@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.9.0-alpha</Version>
+    <Authors>Polzoni Gilberto</Authors>
+    <Description>A library to create markdown file programmatically in .NET</Description>
+    <Copyright>Polzoni Gilberto</Copyright>
+    <PackageTags>Markdown</PackageTags>
+  </PropertyGroup>
+
+</Project>
