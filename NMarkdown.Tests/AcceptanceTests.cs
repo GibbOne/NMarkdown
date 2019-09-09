@@ -4,7 +4,7 @@ using NUnit.Framework;
 using System;
 using System.IO;
 
-namespace NMarkdownTests
+namespace NMarkdown.Tests
 {
     public class AcceptanceTests
     {
@@ -39,7 +39,7 @@ doc.Text(""This license allow the use of NMarkdown in free and commercial applic
             var md = doc.GenerateMarkDown();
 
             // ASSERT
-            md.Should().Be(File.ReadAllText("../../../../NMarkdown/Readme.md"));
+            md.Should().Be(File.ReadAllText("../../../../Readme.md"));
         }
 
         [Test]

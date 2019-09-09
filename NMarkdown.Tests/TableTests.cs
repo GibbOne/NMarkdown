@@ -3,7 +3,7 @@ using System.Text;
 using FluentAssertions;
 using NMarkdown;
 
-namespace NMarkdownTests
+namespace NMarkdown.Tests
 {
     public class TableTests
     {

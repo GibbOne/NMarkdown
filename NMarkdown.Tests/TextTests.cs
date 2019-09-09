@@ -2,7 +2,7 @@
 using NMarkdown;
 using NUnit.Framework;
 
-namespace NMarkdownTests
+namespace NMarkdown.Tests
 {
     public class TextTests
     {
