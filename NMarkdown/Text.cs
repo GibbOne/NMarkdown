@@ -73,7 +73,7 @@ namespace NMarkdown
                     additionalLen += 4;
                 if (IsItalic)
                     additionalLen += 2;
-                return RawText.Length + additionalLen; 
+                return (RawText?.Length ?? 0) + additionalLen;
             }
         }
     }
