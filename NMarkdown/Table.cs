@@ -49,8 +49,9 @@ namespace NMarkdown
         public Text this[int row, int col]
         {
             get => cells[row][col];
-            set => cells[row][col] = value;
         }
+
+        private string RemovePipeFromText(string originalText) => originalText.Replace("|", "/");
 
         public override void SerializeTo(StringBuilder markdown)
         {
@@ -63,6 +64,7 @@ namespace NMarkdown
                 if ((maxWidth - column.Text.RawTextWidth) % 2 != 0) maxWidth++;
                 columnWidths[column.Index] = maxWidth;
                 markdown.Append(new string(' ', (maxWidth - column.Text.RawTextWidth) / 2));
+                column.Text.RawText = RemovePipeFromText(column.Text.RawText);
                 column.Text.SerializeTo(markdown);
                 markdown.Append(new string(' ', (maxWidth - column.Text.RawTextWidth) / 2));
                 markdown.Append(" ");
@@ -75,10 +77,12 @@ namespace NMarkdown
             {
                 markdown.Append("|");
                 if (column.TextAlignment == TextAlignment.Left || column.TextAlignment == TextAlignment.Center)
-                    markdown.Append(":"); else markdown.Append(" ");
+                    markdown.Append(":");
+                else markdown.Append(" ");
                 markdown.Append(new string('-', columnWidths[column.Index]));
                 if (column.TextAlignment == TextAlignment.Right || column.TextAlignment == TextAlignment.Center)
-                    markdown.Append(":"); else markdown.Append(" ");
+                    markdown.Append(":");
+                else markdown.Append(" ");
             }
             markdown.Append("|");
             markdown.Append(Environment.NewLine);
@@ -89,6 +93,7 @@ namespace NMarkdown
                 for (int c = 0; c < ColumnCount; c++)
                 {
                     markdown.Append("| ");
+                    cells[r][c].RawText = RemovePipeFromText(cells[r][c].RawText);
                     cells[r][c].SerializeTo(markdown);
                     markdown.Append(new string(' ', columnWidths[c] - cells[r][c].RawTextWidth));
                     markdown.Append(" ");

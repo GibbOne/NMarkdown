@@ -44,5 +44,27 @@ namespace NMarkdown.Tests
 ";
             md.ToString().Should().Be(tableMd);
         }
+
+
+        [Test]
+        public void PipeReplacementTest()
+        {
+            // ARRANGE
+            var table = new Table(1, 1);
+            table.Columns[0].Text.RawText = "on|off";
+            table[0, 0].RawText = "up|down";
+
+            // ACT
+            StringBuilder md = new StringBuilder();
+            table.SerializeTo(md);
+
+            // ASSERT
+            var tableMd =
+@"|  on/off  |
+|:-------- |
+| up/down  |
+";
+            md.ToString().Should().Be(tableMd);
+        }
     }
 }
