@@ -13,3 +13,6 @@ jobs:
       with:
         dotnet-version: '2.2.103' # SDK Version to use.
     - run: dotnet build NMarkdown.sln
+    - run: dotnet test NMarkdown.Tests/NMarkdown.Tests.csproj
+  
+  
