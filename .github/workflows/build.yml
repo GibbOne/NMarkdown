@@ -14,5 +14,8 @@ jobs:
         dotnet-version: '2.2.103' # SDK Version to use.
     - run: dotnet build NMarkdown.sln
     - run: dotnet test NMarkdown.Tests/NMarkdown.Tests.csproj
+    - run: dotnet pack
+    - run: dotnet nuget push **/*.nupkg -k oy2kl2x2xyz6g33zhd6qi6xiqxjvdpcejb5imoitzvbx7u -s https://api.nuget.org/v3/index.json
+    
   
   
