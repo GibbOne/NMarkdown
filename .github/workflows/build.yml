@@ -19,7 +19,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           API_KEY: ${{ secrets.NugetApiKey }}
-        run: echo "${API_KEY} $GITHUB_CONTEXT"
+        run: echo "API_KEY GITHUB_CONTEXT"
         #run: dotnet nuget push **/*.nupkg -k $API_KEY -s https://api.nuget.org/v3/index.json
     
   
