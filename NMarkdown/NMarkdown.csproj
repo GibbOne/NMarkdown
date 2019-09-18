@@ -2,13 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.9.1-alpha</Version>
+    <Version>0.9.2-alpha</Version>
     <Authors>Polzoni Gilberto</Authors>
     <Description>A library to create markdown file programmatically in .NET</Description>
     <Copyright>Polzoni Gilberto</Copyright>
     <PackageTags>Markdown</PackageTags>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <RepositoryUrl>https://github.com/GibbOne/NMarkdown</RepositoryUrl>
+    <PackageIconUrl>https://github.com/GibbOne/NMarkdown/blob/develop/logo.ico</PackageIconUrl>
+    <AssemblyVersion>0.9.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
