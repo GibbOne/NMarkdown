@@ -12,14 +12,11 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '2.2.103' # SDK Version to use.
-      - run: dotnet build NMarkdown.sln
+      - run: dotnet build NMarkdown.sln --configuration Release
       - run: dotnet test NMarkdown.Tests/NMarkdown.Tests.csproj
       - run: dotnet pack -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
       - name: Publish nuget package
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-          API_KEY: ${{ secrets.NugetApiKey }}
-        run: echo "API_KEY GITHUB_CONTEXT"
+        run: echo "${{ secrets.NugetApiKey }}"
         #run: dotnet nuget push **/*.nupkg -k $API_KEY -s https://api.nuget.org/v3/index.json
     
   
