@@ -17,8 +17,8 @@ jobs:
     - run: dotnet pack -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
     - name: Publish nuget package
       env:
-        APIKEY: ${{ secrets.NugetApiKey }}
-      run: dotnet nuget push **/*.nupkg -k ${APIKEY} -s https://api.nuget.org/v3/index.json
+        API_KEY: ${{ secrets.NugetApiKey }}
+      run: dotnet nuget push **/*.nupkg -k $API_KEY -s https://api.nuget.org/v3/index.json
     
   
   
