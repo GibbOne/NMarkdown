@@ -16,7 +16,6 @@ jobs:
       - run: dotnet test NMarkdown.Tests/NMarkdown.Tests.csproj
       - run: dotnet pack -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
       - name: Publish nuget package
-        #run: echo "${{ secrets.NugetApiKey }}"
         run: dotnet nuget push **/*.nupkg -k ${{ secrets.NugetApiKey }} -s https://api.nuget.org/v3/index.json
     
   
