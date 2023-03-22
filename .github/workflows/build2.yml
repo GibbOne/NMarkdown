@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '2.2.103' # SDK Version to use.
+      - run: dotnet build NMarkdown.sln --configuration Release
+      - run: dotnet test NMarkdown.Tests/NMarkdown.Tests.csproj
+      - run: dotnet pack -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+      #- name: Publish nuget package
+      #  run: dotnet nuget push **/*.nupkg -k ${{ secrets.NugetApiKey }} -s https://api.nuget.org/v3/index.json
